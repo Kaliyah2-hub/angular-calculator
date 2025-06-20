@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html ng-app="calculator">
+<head>
+    <title>A Very Angular Rule-of-72 Calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-container" ng-controller="calcCtrlr">
+        <h2>Enter an interest rate to find out how many years it will take to double your initial investment</h2>
+        <div>
+            <label for="rate">Rate:</label>
+            <input id="rate" ng-model="rate" ng-change="calculateYears()" type="number" placeholder="Enter interest rate (%)">
+        </div>
+        <div class="result" ng-if="years">
+            Years to double: {{ years }}
+        </div>
+        <button ng-click="reset()">Reset</button>
+    </div>
+
+    <script>
+        var ngConverterApp = angular.module('calculator', []);
+
+        ngConverterApp.controller('calcCtrlr', function ($scope) {
+            $scope.rate = 0;
+            $scope.years = 0;
+
+            $scope.calculateYears = function () {
+                if ($scope.rate > 0) {
+                    $scope.years = Number((72 / $scope.rate).toFixed(1));
+                } else {
+                    $scope.years = 0;
+                }
+            };
+
+            $scope.reset = function () {
+                $scope.rate = 0;
+                $scope.years = 0;
+            };
+        });
+    </script>
+</body>
+</html>
