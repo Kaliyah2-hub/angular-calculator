@@ -14,3 +14,6 @@ A single-page web application that calculates the number of years it takes for a
 - Responsive layout for desktop and mobile
 
 ##  📍 Live Demo Here: https://kaliyah2-hub.github.io/angular-calculator/ 
+
+##  📌 Purpose
+Built to demonstrate JavaScript framework usage and real-time user input processing. 
